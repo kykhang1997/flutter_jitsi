@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -33,17 +35,23 @@ class _MyHomePageState extends State<MyHomePage> {
   String _batteryLevel = 'Unknown battery level.';
 
   Future<void> _getBatteryLevel() async {
-    String batteryLevel;
+    String batteryLevel = '';
     try {
-      final int result = await platform.invokeMethod('getBatteryLevel');
-      batteryLevel = 'Battery level at $result % .';
+      await platform.invokeMethod('getBatteryLevel');
+
+      // if (Platform.isAndroid) {
+      // } else {
+      //   final int result = await platform.invokeMethod('getBatteryLevel');
+      //   print(result);
+
+      //   batteryLevel = 'Battery level at $result % .';
+      //   setState(() {
+      //     _batteryLevel = batteryLevel;
+      //   });
+      // }
     } on PlatformException catch (e) {
       batteryLevel = "Failed to get battery level: '${e.message}'.";
     }
-
-    setState(() {
-      _batteryLevel = batteryLevel;
-    });
   }
 
   @override
