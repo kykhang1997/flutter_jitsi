@@ -4,7 +4,7 @@ platform :ios, '11.0'
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
-workspace 'jitsi-meet'
+# workspace 'jitsi-meet'
 
 project 'Runner', {
   'Debug' => :debug,
@@ -36,9 +36,9 @@ target 'Runner' do
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
 end
 
-target 'JitsiMeetSDK' do
-  project 'sdk/sdk.xcodeproj'
-end
+# target 'JitsiMeetSDK' do
+#   project 'sdk/sdk.xcodeproj'
+# end
 
 
 post_install do |installer|

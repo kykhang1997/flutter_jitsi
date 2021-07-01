@@ -24,11 +24,10 @@ open terminal vscode
 !ios
 open terminal
 run ./ios/scripts/release-sdk.sh
-copy workspace and sdk to project ios
-add podfile - target 'JitsiMeetSDK' do
-project 'sdk/sdk.xcodeproj'
-end - platform :ios, '11.0'
-run pod install
-open runner/appdelegate.swift to code ios swift
+open xcode
+create folder Frameworks
+copy jitsimeetsdk.xcframeworks to folder Frameworks
+general frameworks, lib -> embed & sign
+build phases -> link binary with libraries -> check framework required
 
 flutter run

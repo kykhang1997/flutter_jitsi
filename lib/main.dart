@@ -35,23 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String _batteryLevel = 'Unknown battery level.';
 
   Future<void> _getBatteryLevel() async {
-    String batteryLevel = '';
-    try {
-      await platform.invokeMethod('getBatteryLevel');
-
-      // if (Platform.isAndroid) {
-      // } else {
-      //   final int result = await platform.invokeMethod('getBatteryLevel');
-      //   print(result);
-
-      //   batteryLevel = 'Battery level at $result % .';
-      //   setState(() {
-      //     _batteryLevel = batteryLevel;
-      //   });
-      // }
-    } on PlatformException catch (e) {
-      batteryLevel = "Failed to get battery level: '${e.message}'.";
-    }
+    await platform.invokeMethod('getBatteryLevel');
   }
 
   @override
